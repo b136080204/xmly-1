@@ -18,12 +18,31 @@ from datetime import datetime, timezone, timedelta
 # 清除App后台，重新启动App，找到 start.json 的请求，拷贝请求体，放入对应参数 YOUTH_STARTBODY
 
 cookies1 = {
-  'YOUTH_HEADER': {},
-  'YOUTH_READBODY': '',
-  'YOUTH_READTIMEBODY': '',
-  'YOUTH_WITHDRAWBODY': '',
-  'YOUTH_SHAREBODY': '',
-  'YOUTH_STARTBODY': ''
+    'YOUTH_HEADER': {
+        'Host': 'kd.youth.cn',
+        'Accept': 'application/json, text/plain, */*',
+        'User-Agent':
+        'Mozilla/5.0 (Linux; Android 10; V1981A Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36',
+        'Referer':
+        'https://kd.youth.cn/h5/20190527watchMoney/?access=WIFI&app-version=2.8.8&app_version=2.8.8&carrier=%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1&channel=c1007&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl691rWaxzZuwhYyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLC3ibOEsqCYrrnEapqGcXY&cookie_id=259ba4816ad785a6166f78013fafae60&device_brand=vivo&device_id=50981406&device_model=V1981A&device_platform=android&device_type=android&inner_version=202102031654&mi=0&oaid=866d45665fb29c6818c9edf7107d2900b37ad95d8ee60c6078534a3a822e99f3&openudid=a4a7468e35d49626&os_api=29&os_version=QP1A.190711.020%20release-keys&request_time=1615339832&resolution=1080x2182&sim=1&sm_device_id=202103082057057dffa61ae6d218e4e617693968d9998e0135df905eee2c05&subv=1.2.2&szlm_ddid=DuYLmKCAGG%2BCJWSifFLyp2SQ7740E9Hkvx7b6yjb%2FEo4dEQ9S0R9PJ9oDcm0ItIWsJHFRrK30ky0P%2Bq%2Fth1rmiTg&uid=54286805&version_code=56&version_name=%E4%B8%AD%E9%9D%92%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl691rWaxzZuwhYyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLC3ibOEsqCYrrnEapqGcXY&zqkey_id=259ba4816ad785a6166f78013fafae60',
+        'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+        'X-Requested-With': 'cn.youth.news',
+        'Hm_lvt_268f0a31fc0d047e5253dd69ad3a4775': '1615208268',
+        'sensorsdata2019jssdkcross':
+        '%7B%22distinct_id%22%3A%2254286805%22%2C%22%24device_id%22%3A%2217811ea40e117-0f2f5df42c5493-145e2523-289080-17811ea40e2310%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%2217811ea40e117-0f2f5df42c5493-145e2523-289080-17811ea40e2310%22%7D',
+        'Hm_lpvt_268f0a31fc0d047e5253dd69ad3a4775': '1615338262',
+        'Hm_lvt_268f0a31fc0d047e5253dd69ad3a4775': '1615208268',
+    },
+    'YOUTH_READBODY':
+    'p=6XU6PBNNsHKc%3DVtos3hc8_wUBTxmMpX7gRTsRbt2tOBeb_H6PU_yToWetvDeYDFNzMlBBTfFB-4-JpdazE0FzToYC-45K9i6wCkXnmhBYwWQfJj9Ufvb9fok3_j-l4yo2cbyj81o4U0Ri8fskw8nmOoBJy9hGEGoWt_bls1HDw6eP1i2NclOn2gG7aRA6msyUjQywsaahqsSZEl-PtNSNo0ZF0tBNmKeO_SxhigHhXDPwpDwjMr9LsoLJ3VvgkxYc7NSUeNaueMnhIv6nVvT1sBlDYWnfbd3eATt4avXwKuSZNxqw8mw_ANO3_dYeT45XqrxeSOmWGojr2Dgu5U99tt0-lkubn_3GpXwSmMziPKLwW2B2Lh61vPKFxuSNSbyLDWyrLwm8-JN1ntmloNves3cpKhHoYOsPVTyjiLdC07qWls7i1tbzfQDriXQw75bvB6S3IdsH-yh2KNESeLr6opGkFBaUEislNOAxW79vVerfApabUecVCJraulYGksRK6XGP9h1lDEOB718ze_AV205q4Mwnf_YpxTvJCDwrgzIbuQNk-zoY21KJj7pwgRbZV2OV7ylkoCzqZdiD6nAeME5zbCfNEe6_rJmFU1m7xPTfn_0flHFGIlDBiEqlQrmrz-VhQ6x1VlB-bkqCkLSbM8QN2eHlwAo7MA6qPrSKYu2YUV0seZ51y3I9IyCjMi2NZj0q5g1VrDfrMs1TUCXg8cOsT6eK7vjUyNrpw4vI6eAVXwWVTdIMB3kU7SQ8D0IocmQWUiM_Z-dKHqjsqLt8-DtRU8McHObBauwT_yy68ZmGn_ujV-klaX4aJGN87teM9GKev436zZBikc9S3naWVpAg87Z8wpBUqbqcRehCKAO7K4vGmRJh0uHYIdvxFrQji67qe4Bu0u5akhqcEdmg3eubXX-zUs3EkA1m4uZVJn1loORoak0DRTlCbsfW0Kcbf0qDctS-xcQIr9na5HotFwraspO6r-FUyXaJsRG4EgfoMMSdwf-hkipILkfkUl1ZssF44-av9rRtp8RlUBVQXQMU8dDPrT3q2WTks0eq3dLVjrk9zArEowsP49PwfWdQjn60Mj0uXkJpnJapZVZ3dVFn3K_673xNyNAdoF_Tn9Pf5imaP5ysam4mLHuPMCuRnD3JKat0eUbhJXHYZy_dQvmrW2KJ8elWU9vkHmmsgS6nh3gqQIwXD-g9U3InQCEXU0WddXLdQXkEz5XUabI5hoX47x1ANkJu5Jh0oRszJb87W3nDXs9VMCAf8dLkMRS5i2Jml10JuhooK36_uGmxZSbhg0O017xTDFzHGQWxFigt9nNz-3ihgPTeQxrwRGjCAXS1Q3CF4_Ol556_Y3qbv1nEHyBkwkkOdVobxdavvqPuIhd9utCft_nNgYSMsjFSkK-LMgJXj74WDe97_jRf6bPy856ZBHpg3cqeNLcxH-fPF0pZ409oeLcYJhHSwUvrxm_A0J0qbYXk5II67ulwDCU1RmToDQ-fLw%3D%3DM',
+    'YOUTH_REDBODY':
+    '',
+    'YOUTH_READTIMEBODY':
+    'p=DYdVi_XPUOzA%3D7ioCfKCMWbKiTOV7MrS4KrU4G1etY2rmZ67wlFp7pqL0WZSTXl0YNULJpX6CMGJKuijjm1mOkAHIIeZEWH7HY07iOlHXqOuAiPO2i19HRI4uEHdCjJYC2USwNPSM8P4uSOJmrfGukQ1btaw836KysW-kaQ7CyKh1_iA5Ol3R6Wo4JFajLU5uC3ysXc6QNCKRUgUzl12FMcnlp8b3PeabgQ-0xjO-O5RgNhj4JXhjxEMI7GKBwxN7rO_QlIVk5UPe-53WkunbsKUn1532gE_wSlgIpn4-zGeuOOM3xsw85GZICRkpAJzNaP-oNMU-hVTDwqko0kqVjUnFEzE1_XdGps5GPxevd3GVOmVZ4mRqT9kHAXo5V6CIca1FCdlEN3252ZnoEa90sGwB3YzJAKX65kUik-flEfmeC7-NYnxX7Y34tZaa_dz0rmb2NkPbhOTvvl2u-YFHCG3dXqUzpRgZhCkVOBERVOA32u_aPnvG3gEJrJ6f7CD3K7RFJzNbVDGU7Fr-tE6nf3Hj30nt_DjKI1yzk7_E8H6U14o1anTSkqn3jQkKTIBiUxWTNX73yLmjxitLfQUjL1Ky1QdokbjXOjwKFU-taPQ5O9oBCLn_dAR2DzZnUImXDTL-bRA6NDEIwnmo4QtoVuBTzJ8R9GoFedXVxvZR3iA_leUpq9fYA8Q-boM6Zdv4jdTOc8Eh3wfhCleLiu6eyvxBplVrVJVmS2j5XZjQg7TW8VUf35SmF0Ny5KLu_kjj9Ev1PDHc6M-IAqTV9bErvhAIuYdG4Z_0204nUBWJcpz8kcv09kPcNQZ-HLoUPtijbMCU-YGtkhi8ERhJyAefmZIGaTXRIehIKyL--B04fplgiXiw5Mb7ViRdMQ-bL8tJjPkf5_n4xNUkCIDZ37nxyR3j7kI9e9DJJttjZUIBgxfxZ7tF2lKHNOwnt0oOsA0IV4eAdO_vbeAwjFKRdH9Q0faFnQNotVOLPTMo4Rn7z8M4yaje6HArH53XmGhXKyyJGI-Hwy5ERTonU69ODFt0NnzKTJFQB0hGzspXMwKR9j-ikblcMtINjOHbYmiqhutmWXmRazeclSeIy9b8XZ_XMZEIHapyCI2ncWmH5eKO5bpU5BLUijGGu_hgIM73HEKYMAQgwqLZ7TsMhr5Gzy82yjnw2Jt4Qr84QJMttpUQ9nq6dblX1vB103zwhzWTCvz4Yk-pdzwhNiv6GBBpo6G7uf90gmBMlEYiiQ8-GSSNLR5jrsiVqJkQkgbtE0gF5YpMTuZUMUz36IP_OsNxqxdh6FQsHLc4hdU_JPi4q5Fd_Hw1oe665VVkWXixGfbdq0Rr-mZg_LN5ubrLyqpVSC1aOQSTUyRK4U64GL7OpzZXiedaZuT2qVakVKrADF8HqojlzhTwiUroxDttN8n_qmByxBCeYCz-_FIOXXUg4yHBuvMIO6NpszJMOuqL1sv3U8t8MNkDd8Ujn3n3WRQABhghvOc%3DUT',
+    'YOUTH_WITHDRAWBODY':
+    "",
+    'YOUTH_SHAREBODY':
+    'access=WIFI&androidid=a4a7468e35d49626&app-version=2.8.8&app_name=zqkd_app&app_version=2.8.8&article_id=36743008&carrier=CHN-CT&channel=c1007&device_brand=vivo&device_id=50981406&device_model=V1981A&device_platform=android&device_type=android&dpi=480&fp=DuYLmKCAGG%2BCJWSifFLyp2SQ7740E9Hkvx7b6yjb%2FEo4dEQ9S0R9PJ9oDcm0ItIWsJHFRrK30ky0P%2Bq%2Fth1rmiTg&from=4&inner_version=202102031654&language=zh-CN&memory=11&mi=0&mobile_type=1&net_type=1&network_type=WIFI&oaid=866d45665fb29c6818c9edf7107d2900b37ad95d8ee60c6078534a3a822e99f3&openudid=a4a7468e35d49626&os_api=29&os_version=QP1A.190711.020%20release-keys&request_time=1615353843&resolution=1080x2182&rom_version=QP1A.190711.020%20release-keys&sim=1&sm_device_id=202103082057057dffa61ae6d218e4e617693968d9998e0135df905eee2c05&storage=108.89&stype=wx&subv=1.2.2&szlm_ddid=DuYLmKCAGG%2BCJWSifFLyp2SQ7740E9Hkvx7b6yjb%2FEo4dEQ9S0R9PJ9oDcm0ItIWsJHFRrK30ky0P%2Bq%2Fth1rmiTg&token=2a3785701822701772d1a8ea761a4a97&uid=54286805&version_code=56&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl691rWaxzZuwhYyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLC3ibOFjIKYrs-uapqGcXY&zqkey_id=11f652d33ece80bb1a525c27e3f34da1'
 }
 cookies2 = {}
 
